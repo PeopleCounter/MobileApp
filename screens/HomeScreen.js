@@ -1,14 +1,21 @@
-import { TouchableOpacity, StyleSheet, Text, View, TextInput, Image } from 'react-native'
+import { TouchableOpacity, StyleSheet, Text, View, TextInput, Image, Alert } from 'react-native'
 import React from 'react'
-import CodeScreen from './CodeScreen'
 
 const HomeScreen = ({ navigation }) => {
     preprocess = () => {
-        console.log(text, number)
-        navigation.navigate('CodeScreen', { name: number })
+        if (text == '' || number == null) {
+            Alert.alert('Error', 'Please Fill The Fields', [
+                {
+                    text: 'OK'
+                },
+            ]);
+        } else {
+            const otp = Math.floor(Math.random() * 9000) + 1000;
+            navigation.navigate('CodeScreen', { name: text, number: number, otp: otp })
+        }
     }
     const [text, onChangeText] = React.useState('');
-    const [number, onChangeNumber] = React.useState();
+    const [number, onChangeNumber] = React.useState(null);
     return (
         <View>
             <Image style={styles.image} source={require('../assets/kjsce.png')} />
@@ -98,7 +105,7 @@ const styles = StyleSheet.create({
         marginLeft: 100,
         marginRight: 100,
         borderRadius: 15,
-        backgroundColor: '#58595b'
+        backgroundColor: '#b7202e'
     },
     generate: {
         fontSize: 20,
