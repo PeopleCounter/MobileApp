@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
     upper: {
         display: 'flex',
         flexDirection: 'row',
-        marginTop: 50,
+        marginTop: 75,
         height: 100,
     },
     div11: {
         flex: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingLeft: 50,
+        paddingLeft: 75,
     },
     div12: {
         flex: 1,
