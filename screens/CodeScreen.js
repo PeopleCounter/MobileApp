@@ -2,8 +2,25 @@ import { StyleSheet, Text, View, BackHandler, Button } from 'react-native'
 import React from 'react'
 import QRCode from 'react-native-qrcode-svg';
 
+async function sendData(name, number, pincode) {
+    const response = await fetch('https://appbackend-kjrf.onrender.com/guest', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify({
+            "name": name,
+            "number": number,
+            "pincode": pincode
+        }),
+    })
+    console.log('status:', response.status)
+}
+
 const CodeScreen = ({ route, navigation }) => {
     let OTP = route.params.otp.toString()
+    console.log(route.params.name.toString(), route.params.number, route.params.otp)
+    sendData(route.params.name.toString(), route.params.number, route.params.otp)
     return (
         <View style={styles.qr}>
             <QRCode
