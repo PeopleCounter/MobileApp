@@ -14,12 +14,10 @@ async function sendData(name, number, pincode) {
             "pincode": pincode
         }),
     })
-    console.log('status:', response.status)
 }
 
 const CodeScreen = ({ route, navigation }) => {
     let OTP = route.params.otp.toString()
-    console.log(route.params.name.toString(), route.params.number, route.params.otp)
     sendData(route.params.name.toString(), route.params.number, route.params.otp)
     return (
         <View style={styles.qr}>
