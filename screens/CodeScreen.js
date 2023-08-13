@@ -12,7 +12,7 @@ async function sendData(name, number, pincode) {
             "name": name,
             "number": number,
             "pincode": pincode,
-            "passkey": '18bc8b13c1958ece155ba87ba131bb834cb2764982a034d682f328ee8cd2d00'
+            "passkey": '18bc8b13c1958ece155ba87ba131bb834cb2764982a034d682f328ee8cd2d00a'
         }),
     })
     console.log(response.status)
