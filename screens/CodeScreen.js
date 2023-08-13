@@ -12,9 +12,10 @@ async function sendData(name, number, pincode) {
             "name": name,
             "number": number,
             "pincode": pincode,
-            "passkey": '18bc8b13c1958ece155ba87ba131bb834cb2764982a034d682f328ee8cd2d00a'
+            "passkey": '18bc8b13c1958ece155ba87ba131bb834cb2764982a034d682f328ee8cd2d00'
         }),
     })
+    console.log(response.status)
 }
 
 const CodeScreen = ({ route, navigation }) => {
